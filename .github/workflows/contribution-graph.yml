@@ -1,0 +1,29 @@
+name: Generate Contribution Graph
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # roda todo dia à meia-noite
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Generate Pac-Man Contribution Graph
+        uses: Platane/snk@v3
+        with:
+          github_user_name: matheusmartinsn1
+          outputs: |
+            ./output/pacman-contribution-graph.svg
+            ./output/pacman-contribution-graph-dark.svg
+
+      - name: Push the generated graph
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: github-actions
+          author_email: actions@github.com
+          message: "Generate contribution graph"
+          add: "./output"
