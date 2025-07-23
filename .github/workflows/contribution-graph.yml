@@ -20,11 +20,13 @@ jobs:
             ./output/pacman-contribution-graph.svg
             ./output/pacman-contribution-graph-dark.svg
 
-      - name: Push the generated graph
+      - name: Commit and push changes
         uses: EndBug/add-and-commit@v9
         with:
           author_name: github-actions
           author_email: actions@github.com
-          message: "Generate contribution graph"
-          add: "./output"
+          message: Generate contribution graph
+          add: ./output
+          push: true
           github_token: ${{ secrets.GH_TOKEN }}
+
