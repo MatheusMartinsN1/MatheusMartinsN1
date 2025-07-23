@@ -27,4 +27,4 @@ jobs:
           author_email: actions@github.com
           message: "Generate contribution graph"
           add: "./output"
-          token: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GH_TOKEN }}
