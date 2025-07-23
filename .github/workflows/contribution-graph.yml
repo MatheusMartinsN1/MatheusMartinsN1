@@ -2,7 +2,7 @@ name: Generate Contribution Graph
 
 on:
   schedule:
-    - cron: '0 0 * * *' # roda todo dia à meia-noite
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
       - name: Generate Pac-Man Contribution Graph
         uses: Platane/snk@v3
         with:
-          github_user_name: matheusmartinsn1
+          github_user_name: MatheusMartinsN1
           outputs: |
             ./output/pacman-contribution-graph.svg
             ./output/pacman-contribution-graph-dark.svg
@@ -27,5 +27,4 @@ jobs:
           author_email: actions@github.com
           message: "Generate contribution graph"
           add: "./output"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
